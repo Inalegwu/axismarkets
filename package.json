@@ -1,0 +1,47 @@
+{
+	"name": "inalegwu",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"prebuild": "contentlayer build",
+		"dev": "next dev --turbopack",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@react-three/fiber": "9.0.0-rc.1",
+		"@solar-icons/react": "^1.0.1",
+		"@tailwindcss/postcss": "^4.2.2",
+		"@toolwind/corner-shape": "^0.0.8-3",
+		"cheerio": "^1.2.0",
+		"contentlayer": "^0.3.4",
+		"date-fns": "^4.1.0",
+		"motion": "^11.15.0",
+		"next": "15.1.11",
+		"next-contentlayer": "^0.3.4",
+		"radix-ui": "^1.4.3",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
+		"react-icons": "^5.4.0",
+		"react-markdown": "^9.0.3",
+		"remark-gfm": "^4.0.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@types/node": "^20",
+		"@types/react": "^19",
+		"@types/react-dom": "^19",
+		"@types/react-syntax-highlighter": "^15.5.13",
+		"postcss": "^8.5.8",
+		"tailwindcss": "^4.2.2",
+		"typescript": "^5"
+	},
+	"trustedDependencies": [
+		"@biomejs/biome",
+		"contentlayer",
+		"esbuild",
+		"protobufjs",
+		"sharp"
+	]
+}

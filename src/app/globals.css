@@ -1,0 +1,70 @@
+@import "tailwindcss";
+@plugin "@toolwind/corner-shape";
+
+@font-face {
+  font-family: Pilcrow;
+  src: url("../assets/fonts/pilcrow.ttf");
+}
+
+@font-face {
+  font-family: Martian;
+  src: url("../assets/fonts/martian.ttf");
+}
+
+@theme {
+  --font-code: "Martian", "monospaced";
+  --font-display: "Pilcrow", "sans-serif";
+
+  --color-accent-50: #f6f6f6;
+  --color-accent-100: #ebebeb;
+  --color-accent-200: #d4d4d4;
+  --color-accent-300: #b6b6b6;
+  --color-accent-400: #969696;
+  --color-accent-500: #777777;
+  --color-accent-600: #636363;
+  --color-accent-700: #505050;
+  --color-accent-800: #3e3e3e;
+  --color-accent-900: #2b2b2b;
+  --color-accent-950: #1b1b1b;
+}
+
+body {
+  @apply bg-accent-950 text-accent-50 font-display select-none outline-none;
+}
+
+.shiki {
+  counter-reset: step;
+  counter-increment: step 0;
+  @apply px-3 py-3 rounded-lg border border-solid border-accent-900 overflow-x-scroll my-3;
+  .line {
+    @apply text-[12px] font-code;
+    &::before {
+      counter-increment: step;
+      @apply mr-4 inline-block border-transparent text-[11px] text-right text-neutral-400 content-[counter(step)];
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background: 0;
+  color: none;
+}
+
+#no-scroll {
+  scrollbar-width: 0;
+  scrollbar-color: 0;
+  scrollbar-gutter: 0;
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
