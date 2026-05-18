@@ -21,6 +21,13 @@
   --font-display: "Switzer", "sans-serif";
   --font-alternate:"Chillax","sans-serif";
 
+
+
+   --animate-slide-down-and-fade: slideDownAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slide-left-and-fade: slideLeftAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slide-up-and-fade: slideUpAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slide-right-and-fade: slideRightAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1);
+
   /* Colors: background */
 --color-background-50: #f6f6f6;
 --color-background-100: #ebebeb;
@@ -60,6 +67,53 @@
 --color-accent-800: #2d4239;
 --color-accent-900: #1c3028;
 --color-accent-950: #0b1f17;
+
+
+@keyframes slideDownAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeftAndFade {
+  from {
+    opacity: 0;
+    transform: translateX(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideUpAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRightAndFade {
+  from {
+    opacity: 0;
+    transform: translateX(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
 }
 
 body {
@@ -73,7 +127,7 @@ body {
 }
 
 button{
-  @apply cursor-pointer active:scale-[0.97];
+  @apply cursor-pointer active:scale-[0.97] outline-none;
 }
 
 .navlink{
