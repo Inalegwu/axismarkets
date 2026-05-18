@@ -2,7 +2,7 @@ import { defineDocumentType, makeSource } from "contentlayer/source-files";
 
 export const Study = defineDocumentType(() => ({
   name: "Study",
-  filePathPattern: "**/*.mdx",
+  filePathPattern: "**/*.md",
   fields: {
     title: { type: "string", required: true },
     subtitle: { type: "string", required: false },
@@ -12,10 +12,6 @@ export const Study = defineDocumentType(() => ({
       type: "list",
       of: [{ type: "string" }],
     },
-    body:{
-    type:"string",
-    required:true
-    }
   },
   computedFields: {
     url: {
@@ -25,4 +21,7 @@ export const Study = defineDocumentType(() => ({
   },
 }));
 
-export default makeSource({ contentDirPath: "posts", documentTypes: [Study] });
+export default makeSource({
+  contentDirPath: "studies",
+  documentTypes: [Study],
+});

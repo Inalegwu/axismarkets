@@ -15,11 +15,6 @@ export default function RootLayout({
     <html lang="en">
       <body className="antialiased transition w-full no-scrollbar">
         {children}
-        {/* <div className="absolute bottom-2 left-2 w-full flex items-center justify-between">
-          <span className="text-xs text-color350 italic underline underline-offset-2">
-            Some creatures do in fact change 🦇
-          </span>
-        </div> */}
       </body>
     </html>
   );

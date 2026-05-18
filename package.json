@@ -11,7 +11,7 @@
 	},
 	"dependencies": {
 		"@react-three/fiber": "9.0.0-rc.1",
-		"@solar-icons/react": "^1.0.1",
+		"@solar-icons/react": "^1.1.0",
 		"@tailwindcss/postcss": "^4.2.2",
 		"@toolwind/corner-shape": "^0.0.8-3",
 		"cheerio": "^1.2.0",

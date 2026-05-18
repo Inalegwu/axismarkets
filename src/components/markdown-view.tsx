@@ -1,52 +1,14 @@
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { createHighlighter } from "shiki";
 import HoverLink from "./hover-link";
 
 export default async function MarkdownView({ content }: { content: string }) {
-  const highlighter = await createHighlighter({
-    themes: ["everforest-light", "everforest-dark"],
-    langs: [
-      "typescript",
-      "javascript",
-      "bash",
-      "plaintext",
-      "zig",
-      "rust",
-      "json",
-      "jsonc",
-    ],
-  });
-
   return (
     <Markdown
       // biome-ignore lint/correctness/noChildrenProp: this feels better for what i'm trying to achieve
       children={content}
       remarkPlugins={[[remarkGfm, { singleTilde: true }]]}
       components={{
-        // @ts-ignore
-        code({ node, children, inline, className, ...props }) {
-          const match = /language-(\w+)/.exec(className || "");
-
-          const html = highlighter.codeToHtml(
-            String(children).replace(/\n$/, ""),
-            {
-              theme: "everforest-dark",
-              lang: match ? match[1] : "",
-            },
-          );
-
-          return (
-            <code
-              {...props}
-              // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
-              dangerouslySetInnerHTML={{
-                // biome-ignore lint/style/noNonNullAssertion: <explanation>
-                __html: html!,
-              }}
-            />
-          );
-        },
         i({ children, ...props }) {
           return (
             <i className="italic text-accent-550" {...props}>

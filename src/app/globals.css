@@ -2,53 +2,82 @@
 @plugin "@toolwind/corner-shape";
 
 @font-face {
-  font-family: Pilcrow;
-  src: url("../assets/fonts/pilcrow.ttf");
+  font-family: Gambarino;
+  src: url("../assets/fonts/gambarino.ttf");
 }
 
 @font-face {
-  font-family: Martian;
-  src: url("../assets/fonts/martian.ttf");
+  font-family: Switzer;
+  src: url("../assets/fonts/switzer.ttf");
+}
+
+@font-face {
+  font-family: Chillax;
+  src: url("../assets/fonts/chillax.ttf");
 }
 
 @theme {
-  --font-code: "Martian", "monospaced";
-  --font-display: "Pilcrow", "sans-serif";
+  --font-title: "Gambarino", "serif";
+  --font-display: "Switzer", "sans-serif";
+  --font-alternate:"Chillax","sans-serif";
 
-  --color-accent-50: #f6f6f6;
-  --color-accent-100: #ebebeb;
-  --color-accent-200: #d4d4d4;
-  --color-accent-300: #b6b6b6;
-  --color-accent-400: #969696;
-  --color-accent-500: #777777;
-  --color-accent-600: #636363;
-  --color-accent-700: #505050;
-  --color-accent-800: #3e3e3e;
-  --color-accent-900: #2b2b2b;
-  --color-accent-950: #1b1b1b;
+  /* Colors: background */
+--color-background-50: #f6f6f6;
+--color-background-100: #ebebeb;
+--color-background-200: #d4d4d4;
+--color-background-300: #b6b6b6;
+--color-background-400: #969696;
+--color-background-500: #777777;
+--color-background-600: #636363;
+--color-background-700: #505050;
+--color-background-800: #3e3e3e;
+--color-background-900: #2c2c2c;
+--color-background-950: #000000;
+
+/* Colors: foreground */
+--color-foreground-50: #ffffff;
+--color-foreground-100: #ebebeb;
+--color-foreground-200: #d4d4d4;
+--color-foreground-300: #b6b6b6;
+--color-foreground-400: #969696;
+--color-foreground-500: #777777;
+--color-foreground-600: #636363;
+--color-foreground-700: #505050;
+--color-foreground-800: #3e3e3e;
+--color-foreground-900: #2c2c2c;
+--color-foreground-950: #1b1b1b;
+
+
+/* Colors: accent */
+--color-accent-50: #e5fff3;
+--color-accent-100: #d7f1e5;
+--color-accent-200: #c1dacf;
+--color-accent-300: #a3bcb0;
+--color-accent-400: #839b90;
+--color-accent-500: #657c72;
+--color-accent-600: #52685e;
+--color-accent-700: #3f554b;
+--color-accent-800: #2d4239;
+--color-accent-900: #1c3028;
+--color-accent-950: #0b1f17;
 }
 
 body {
-  @apply bg-accent-950 text-accent-50 font-display select-none outline-none;
-}
-
-.shiki {
-  counter-reset: step;
-  counter-increment: step 0;
-  @apply px-3 py-3 rounded-lg border border-solid border-accent-900 overflow-x-scroll my-3;
-  .line {
-    @apply text-[12px] font-code;
-    &::before {
-      counter-increment: step;
-      @apply mr-4 inline-block border-transparent text-[11px] text-right text-neutral-400 content-[counter(step)];
-    }
-  }
+  @apply bg-background-950 text-foreground-50 font-display select-none outline-none;
 }
 
 ::-webkit-scrollbar {
   width: 0;
   background: 0;
   color: none;
+}
+
+button{
+  @apply cursor-pointer active:scale-[0.97];
+}
+
+.navlink{
+  @apply text-sm text-foreground-100 hover:text-foreground-50 active:scale-[0.97];
 }
 
 #no-scroll {
