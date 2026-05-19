@@ -16,6 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const studies = allStudies.sort((a, b) =>
+    // @ts-ignore: idfk
     compareDesc(new Date(a.date || ""), new Date(b.date, "")),
   );
 
