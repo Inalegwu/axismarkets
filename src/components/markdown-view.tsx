@@ -32,48 +32,63 @@ export default function MarkdownView({ content }: { content: string }) {
         },
         h1({ children, ...props }) {
           return (
-            <h1 {...props} className="text-4xl my-3 font-medium font-title">
+            <h1
+              {...props}
+              className="text-4xl my-3 text-foreground-200 font-bold font-title"
+            >
               {children}
             </h1>
           );
         },
         h2({ children, ...props }) {
           return (
-            <h2 {...props} className="my-3 text-3xl font-medium font-title">
+            <h2
+              {...props}
+              className="my-3 text-3xl text-foreground-200 font-bold font-title"
+            >
               {children}
             </h2>
           );
         },
         h3({ children, ...props }) {
           return (
-            <h3 {...props} className="my-3 font-medium text-2xl font-title">
+            <h3
+              {...props}
+              className="my-3 font-bold text-foreground-200 text-2xl font-title"
+            >
               {children}
             </h3>
           );
         },
         h4({ children, ...props }) {
           return (
-            <h4 {...props} className="font-medium text-xl my-3 font-title">
+            <h4
+              {...props}
+              className="font-bold text-xl text-foreground-200 my-3 font-title"
+            >
               {children}
             </h4>
           );
         },
         h5({ children, ...props }) {
           return (
-            <h5 className="font-medium my-3 text-lg font-title" {...props}>
+            <h5
+              className="font-bold text-foreground-200 my-3 text-lg font-title"
+              {...props}
+            >
               {children}
             </h5>
           );
         },
         p({ children, ...props }) {
           return (
-            <p className="text-neutral-200 my-3" {...props}>
+            <p className="text-foreground-300 my-3" {...props}>
               {children}
             </p>
           );
         },
         hr() {
-          return <div className="w-full my-4 h-px bg-background-900/30" />;
+          return <div className="w-full my-5 h-px bg-background-900/30" />;
         },
         a({ children, href }) {
           return (

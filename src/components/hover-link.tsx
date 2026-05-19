@@ -2,6 +2,7 @@
 
 import { extractOGTag } from "@/lib/utils";
 import { ArrowRight } from "@solar-icons/react/ssr";
+import axios from "axios";
 import { load } from "cheerio";
 import Link from "next/link";
 import { Avatar, HoverCard } from "radix-ui";
@@ -63,14 +64,6 @@ export default function HoverLink({ children, side, ...rest }: Props) {
           <div className="flex flex-col items-start justify-start gap-1">
             <p className="text-sm font-medium">{tags.title}</p>
             <p className="text-xs">{tags.description}</p>
-            <Link
-              href={tags.url || ""}
-              target="__blank"
-              className="flex items-center justify-center gap-1 px-4 py-1 text-sm bg-teal-100/10 text-teal-500 mt-1 rounded-sm"
-            >
-              See
-              <ArrowRight size={12} />
-            </Link>
           </div>
         </HoverCard.Content>
       </HoverCard.Portal>
