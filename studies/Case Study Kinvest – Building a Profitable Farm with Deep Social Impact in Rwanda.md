@@ -74,15 +74,11 @@ operation, showing that the model can attract institutional impact capital.
 
 ## References
 
-- FreshPlaza, “Canadian capital, Rwandan fields: Building profitable farms with
-  social impact,” January 2026.
-  [Link](https://www.freshplaza.com/latin-america/article/9803963/canadian-capital-rwandan-fields-building-profitable-farms-with-social-impact/)
+- [FreshPlaza, “Canadian capital, Rwandan fields: Building profitable farms with
+  social impact,” January 2026.](https://www.freshplaza.com/latin-america/article/9803963/canadian-capital-rwandan-fields-building-profitable-farms-with-social-impact/)
 
-- Ethical Business Africa, “Returns and rural jobs: Rwanda’s test case for
-  commercial farming,” January 2026.
-
-- Wealth Professional, “Kinvest partners with Capstone for rural Africa impact
-  investment fund,” November 2023. [Link](https://www.wealthprofessional.ca)
+- [Wealth Professional, “Kinvest partners with Capstone for rural Africa impact
+  investment fund,” November 2023.](https://www.wealthprofessional.ca)
 
 ---
 

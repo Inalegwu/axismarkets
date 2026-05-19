@@ -1,20 +1,36 @@
+"use client";
+
 import { extractOGTag } from "@/lib/utils";
 import { ArrowRight } from "@solar-icons/react/ssr";
 import { load } from "cheerio";
 import Link from "next/link";
 import { Avatar, HoverCard } from "radix-ui";
 import type React from "react";
+import { useEffect, useState } from "react";
 
 type Props = React.ComponentProps<typeof Link> & {
   side?: "top" | "right" | "bottom" | "left";
 };
 
-export default async function HoverLink({ children, side, ...rest }: Props) {
-  const page = await fetch(rest.href.toString())
-    .then((res) => res.text())
-    .then((txt) => load(txt));
+export default function HoverLink({ children, side, ...rest }: Props) {
+  const [tags, setTags] = useState<Tag | undefined>(undefined);
 
-  const tags = extractOGTag(page);
+  useEffect(() => {
+    (async () => {
+      const page = await fetch(rest.href.toString())
+        .then((res) => res.text())
+        .catch((err) => console.log(err))
+        .then((txt) => load(txt ? txt : ""));
+
+      const tags = extractOGTag(page);
+
+      setTags(tags);
+    })();
+  }, [rest.href]);
+
+  if (!tags) {
+    return null;
+  }
 
   return (
     <HoverCard.Root>

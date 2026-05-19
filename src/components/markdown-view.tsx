@@ -1,8 +1,9 @@
+"use client";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import HoverLink from "./hover-link";
 
-export default async function MarkdownView({ content }: { content: string }) {
+export default function MarkdownView({ content }: { content: string }) {
   return (
     <Markdown
       // biome-ignore lint/correctness/noChildrenProp: this feels better for what i'm trying to achieve
@@ -31,50 +32,35 @@ export default async function MarkdownView({ content }: { content: string }) {
         },
         h1({ children, ...props }) {
           return (
-            <h1
-              {...props}
-              className="text-4xl font-medium underline underline-offset-2 text-accent-300 my-3"
-            >
+            <h1 {...props} className="text-4xl my-3 font-medium font-title">
               {children}
             </h1>
           );
         },
         h2({ children, ...props }) {
           return (
-            <h2
-              {...props}
-              className="my-3 text-3xl font-medium text-accent-300 underline underline-offset-2"
-            >
+            <h2 {...props} className="my-3 text-3xl font-medium font-title">
               {children}
             </h2>
           );
         },
         h3({ children, ...props }) {
           return (
-            <h3
-              {...props}
-              className="my-3 font-medium text-2xl text-accent-300 underline underline-offset-2"
-            >
+            <h3 {...props} className="my-3 font-medium text-2xl font-title">
               {children}
             </h3>
           );
         },
         h4({ children, ...props }) {
           return (
-            <h4
-              {...props}
-              className="font-medium text-accent-300 underline underline-offset-2 text-xl my-3"
-            >
+            <h4 {...props} className="font-medium text-xl my-3 font-title">
               {children}
             </h4>
           );
         },
         h5({ children, ...props }) {
           return (
-            <h5
-              className="font-medium my-3 text-accent-300 underline underline-offset-2 text-lg"
-              {...props}
-            >
+            <h5 className="font-medium my-3 text-lg font-title" {...props}>
               {children}
             </h5>
           );
@@ -86,12 +72,15 @@ export default async function MarkdownView({ content }: { content: string }) {
             </p>
           );
         },
+        hr() {
+          return <div className="w-full my-4 h-px bg-background-900/30" />;
+        },
         a({ children, href }) {
           return (
             <HoverLink
               href={href || ""}
               target="_blank"
-              className="text-accent-300 underline underline-offset-2 italic"
+              className="text-accent-300 underline italic"
             >
               {children}
             </HoverLink>

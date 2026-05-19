@@ -24,7 +24,13 @@ export default async function Page({
   if (!study) throw new Error(`Post not found for Slug ${slug}`);
 
   return (
-    <div>
+    <div className="w-full h-full overflow-hidden overflow-y-scroll px-10 py-3">
+      <div className="flex mb-8 w-full flex-col items-start justify-start">
+        <h1 className="font-title text-foreground-100 font-medium text-4xl">
+          {study.title}
+        </h1>
+        <h5 className="text-lg text-foreground-500">{study.subtitle}</h5>
+      </div>
       <MarkdownView content={study.body.raw} />
     </div>
   );
