@@ -73,13 +73,6 @@ operating realities.
 
 ---
 
----
-
-![Untitled](https://primary.jwwb.nl/public/l/r/w/temp-nihdouahqtklbpidpzak/2-high-fggm7c.png?enable-io=true&width=600)
-[Untitled - Notes](../Images/Untitled.md)
-
----
-
 **Axis Market Entry**
 
 _Axis Market Entry Advisory connects international investors with prime

@@ -35,9 +35,9 @@
 			"indentStyle": "space"
 		}
 	},
-	"css":{
-		"formatter":{
-			"indentStyle":"space"
+	"css": {
+		"formatter": {
+			"indentStyle": "space"
 		}
 	}
 }

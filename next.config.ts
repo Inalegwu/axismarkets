@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "i.imgur.com", pathname: "/**" },
     ],
-  }
+  },
 };
 
 export default withContentlayer(nextConfig);

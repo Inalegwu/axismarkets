@@ -1,3 +1,6 @@
+import { CloseCircle } from "@solar-icons/react/ssr";
+import { Dialog } from "radix-ui";
+
 export default function Page() {
   return (
     <div className="flex flex-col items-center gap-2 justify-center w-full h-full">
@@ -9,7 +12,7 @@ export default function Page() {
       </h1>
       <span className="text-center w-3/6 text-sm text-foreground-500">
         At{" "}
-        <span className="text-transparent bg-clip-text bg-linear-to-r from-accent-600 to-accent-900">
+        <span className="text-transparent bg-clip-text bg-linear-to-r from-accent-600 to-white">
           Axis
         </span>
         , we are committed to providing data-backed insights into the global
@@ -30,8 +33,8 @@ export default function Page() {
           <h1>Technology Driven</h1>
           <span className="text-foreground-500 text-center">
             Insights are collated and interpreted with technology from a variety
-            of sources so you can be sure your information is both up-to-date
-            and traceable
+            of sources so you can be sure your information is up-to-date and
+            traceable
           </span>
         </div>
         <div className="w-2/6 p-3 flex text-xs flex-col items-end justify-center h-full border-l border-l-solid border-l-foreground-500/30">
@@ -43,9 +46,31 @@ export default function Page() {
           </span>
         </div>
       </div>
-      <button className="bg-white px-4 py-1 rounded-full text-center text-xs text-foreground-950">
-        Send Feedback
-      </button>
+      <Dialog.Root>
+        <Dialog.Trigger asChild>
+          <button className="bg-white px-4 py-1 rounded-full text-center text-xs text-foreground-950">
+            Send Feedback
+          </button>
+        </Dialog.Trigger>
+        <Dialog.Portal>
+          <Dialog.Overlay className="fixed inset-0 bg-black/20 data-[state=open]:animate-overlayShow" />
+          <Dialog.Content className="fixed left-1/2 bg-background-950 border border-solid border-background-900/20 rounded-sm top-1/2 max-h-[85vh] w-[90vw] max-w-125 -translate-x-1/2 -translate-y-1/2 shadow-(--shadow-6) focus:outline-none data-[state=open]:animate-contentShow">
+            <div className="w-full h-full p-3 flex relative flex-col items-start justify-start gap-2">
+              <Dialog.Close className="absolute top-3 right-3 text-red-500">
+                <CloseCircle size={16} weight="Bold" />
+              </Dialog.Close>
+              <div className="flex flex-col items-start justify-start">
+                <Dialog.Title className="text-foreground-100 font-medium -gap-1 text-md">
+                  Feedback
+                </Dialog.Title>
+                <span className="text-sm text-foreground-500">
+                  give us feedback, we're always try to build better
+                </span>
+              </div>
+            </div>
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
     </div>
   );
 }

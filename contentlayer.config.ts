@@ -1,4 +1,12 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
+import slugify from "slugify";
+
+const makeSlug = (text: string) =>
+  slugify(text, {
+    replacement: "_",
+    lower: true,
+    strict: true,
+  });
 
 export const Study = defineDocumentType(() => ({
   name: "Study",
@@ -14,9 +22,13 @@ export const Study = defineDocumentType(() => ({
     },
   },
   computedFields: {
+    slug: {
+      type: "string",
+      resolve: (post) => makeSlug(post.title),
+    },
     url: {
       type: "string",
-      resolve: (post) => `/blog/${post._raw.flattenedPath}`,
+      resolve: (post) => `/studies/${makeSlug(post.title)}`,
     },
   },
 }));

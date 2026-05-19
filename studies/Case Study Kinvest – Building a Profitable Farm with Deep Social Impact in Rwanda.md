@@ -1,5 +1,4 @@
 ---
-type: "Page"
 title: "Case Study: Kinvest"
 subtitle: "Building a Profitable Farm with Deep Social Impact in Rwanda"
 date: "2026-05-13T12:02:46.363Z"
@@ -84,13 +83,6 @@ operation, showing that the model can attract institutional impact capital.
 
 - Wealth Professional, “Kinvest partners with Capstone for rural Africa impact
   investment fund,” November 2023. [Link](https://www.wealthprofessional.ca)
-
----
-
----
-
-![Untitled](https://primary.jwwb.nl/public/l/r/w/temp-nihdouahqtklbpidpzak/2-high-fggm7c.png?enable-io=true&width=600)
-[Untitled - Notes](../Images/Untitled.md)
 
 ---
 

@@ -1,5 +1,8 @@
 import { BackButton } from "@/components";
+import { allStudies } from "contentlayer/generated";
+import { compareDesc } from "date-fns";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Axis Market Partners | Case Studies",
@@ -12,6 +15,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const studies = allStudies.sort((a, b) =>
+    compareDesc(new Date(a.date || ""), new Date(b.date, "")),
+  );
+
   return (
     <main className="flex items-center w-full h-screen overflow-hidden">
       <div className="w-[20%] h-full flex flex-col items-start justify-start">
@@ -19,6 +26,20 @@ export default function RootLayout({
           <BackButton />
           <span className="text-lg mx-2">Case Studies</span>
         </nav>
+        <div className="flex flex-col items-start justify-start">
+          {studies.map((study, idx) => (
+            <Link
+              className="px-3 py-4 border-b hover:bg-background-900/10 border-b-solid border-b-background-900/30 w-full"
+              href={study.url}
+              key={`${idx}__${study._id}`}
+            >
+              <h1 className="text-sm font-medium text-foreground-200">
+                {study.title}
+              </h1>
+              <p className="text-xs text-foreground-500">{study.subtitle}</p>
+            </Link>
+          ))}
+        </div>
       </div>
       <div className="w-[80%] h-full border-l border-l-solid border-l-background-900/35">
         {children}

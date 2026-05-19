@@ -30,9 +30,7 @@ export default function Home() {
             </span>
           </div>
           <div className="w-full gap-4 hidden md:lg:xl:flex items-center justify-between">
-            <div className="w-50 h-50 rounded-sm text-foreground-950 p-2 bg-background-50">
-              content
-            </div>
+            <div className="w-50 h-50 rounded-sm text-foreground-950 p-2 bg-background-50" />
             <h1 className="text-7xl font-bold w-1/6 font-alternate">
               PLAN BUILD REFORM.
             </h1>
@@ -125,9 +123,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="w-full h-[90vh] bg-background-50 text-background-950">
-        content
-      </section>
+      <section className="w-full h-[90vh] bg-background-50 text-background-950" />
       <footer className="w-full h-[90vh] relative flex flex-col items-center justify-center">
         <div className="w-full h-full flex items-center justify-between">
           <div className="flex flex-col h-full w-3/6 text-sm md:lg:xl:text-base items-start p-10 text-foreground-500 justify-start gap-1">
