@@ -169,7 +169,7 @@ const Copyable = ({
       ref={elementRef as React.Ref<any>}
       // @ts-expect-error: idfk
       onClick={handleCopy}
-      // @ts-expect:error: idfk
+      // @ts-expect-error: idfk
       onKeyDown={handleKeyDown}
       className={combinedClassName}
       style={baseStyles}
