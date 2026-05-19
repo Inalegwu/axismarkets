@@ -1,8 +1,6 @@
 "use client";
 
 import { extractOGTag } from "@/lib/utils";
-import { ArrowRight } from "@solar-icons/react/ssr";
-import axios from "axios";
 import { load } from "cheerio";
 import Link from "next/link";
 import { Avatar, HoverCard } from "radix-ui";

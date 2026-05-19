@@ -31,3 +31,11 @@ export function extractOGTag(html: CheerioAPI): Tag {
     keywords,
   } satisfies Tag;
 }
+
+export const makeUrl = (subPath: string) => {
+  if (process.env.NODE_ENV === "development") {
+    return `http://localhost:3000/${subPath}`;
+  }
+
+  return `${process.env.NEXT_PUBLIC_BASE_URL}/${subPath}`;
+};

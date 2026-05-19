@@ -87,20 +87,3 @@ and Solar Panda absolutely essential.
 
 - Solar Panda – Globe and Mail profile, November 2022.
   [Link](https://www.theglobeandmail.com)
-
----
-
-**Axis Market Entry**
-
-_Axis Market Entry Advisory connects international investors with prime
-opportunities in Canada, and empowers businesses to thrive in the global arena.
-We are an execution-driven advisory firm focused on real transactions,
-partnerships, and capital deployment_
-
-**Email**
-
-partners@axis-markets.com
-
-**Phone**
-
-+1 (226) 456-7457

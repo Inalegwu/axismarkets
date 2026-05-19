@@ -79,20 +79,3 @@ operation, showing that the model can attract institutional impact capital.
 
 - [Wealth Professional, “Kinvest partners with Capstone for rural Africa impact
   investment fund,” November 2023.](https://www.wealthprofessional.ca)
-
----
-
-**Axis Market Entry**
-
-_Axis Market Entry Advisory connects international investors with prime
-opportunities in Canada, and empowers businesses to thrive in the global arena.
-We are an execution-driven advisory firm focused on real transactions,
-partnerships, and capital deployment_
-
-**Email**
-
-partners@axis-markets.com
-
-**Phone**
-
-+1 (226) 456-7457

@@ -22,7 +22,7 @@ export default function RootLayout({
 
   return (
     <main className="flex items-center w-full h-screen overflow-hidden">
-      <div className="w-[20%] h-full flex flex-col items-start justify-start">
+      <div className="w-[22%] h-full flex flex-col items-start justify-start">
         <nav className="flex items-center justify-between p-3">
           <BackButton />
           <span className="text-lg mx-2">Case Studies</span>
@@ -30,7 +30,7 @@ export default function RootLayout({
         <div className="flex flex-col items-start justify-start">
           {studies.map((study, idx) => (
             <Link
-              className="px-3 py-4 border-b hover:bg-background-900/10 border-b-solid border-b-background-900/30 w-full"
+              className="px-3 py-4 border-b hover:bg-background-900/20 border-b-solid border-b-background-900/30 w-full"
               href={study.url}
               key={`${idx}__${study._id}`}
             >
@@ -42,7 +42,7 @@ export default function RootLayout({
           ))}
         </div>
       </div>
-      <div className="w-[80%] h-full border-l border-l-solid border-l-background-900/35">
+      <div className="w-[78%] h-full border-l border-l-solid border-l-background-900/35">
         {children}
       </div>
     </main>

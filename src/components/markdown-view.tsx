@@ -82,7 +82,7 @@ export default function MarkdownView({ content }: { content: string }) {
         },
         p({ children, ...props }) {
           return (
-            <p className="text-foreground-300 my-3" {...props}>
+            <p className="text-foreground-300 my-4 text-base" {...props}>
               {children}
             </p>
           );
