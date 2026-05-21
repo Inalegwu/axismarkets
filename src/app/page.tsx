@@ -9,6 +9,7 @@ import {
   Routing2,
 } from "@solar-icons/react/ssr";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -64,20 +65,18 @@ export default function Home() {
         <div className="h-4/6 md:lg:xl:h-full w-full md:lg:xl:w-4/6 hidden md:lg:xl:flex flex-wrap items-start justify-end">
           {WHAT_WE_DO.map((item, idx) => (
             <div
-              className={`md:lg:xl:w-3/6 md:lg:xl:h-3/6 flex flex-col p-5 items-start justify-start gap-3 hover:bg-background-950 hover:text-foreground-50 transition border border-solid border-background-300 ${idx === 0 ? "border-t-transparent border-l-transparent" : idx === 3 ? "border-r-transparent border-b-transparent" : "border-transparent"}`}
+              className="md:lg:xl:w-3/6 md:lg:xl:h-3/6 flex flex-col p-5 items-start justify-start gap-3 hover:bg-background-950 hover:text-foreground-50 transition"
               key={idx}
             >
-              <span className="md:lg:xl:size-100">
-                {item.slug === "readiness" ? (
-                  <LinkRound weight="Bold" />
-                ) : item.slug === "research" ? (
-                  <Library weight="Bold" />
-                ) : item.slug === "connect" ? (
-                  <LinkSquare weight="Bold" />
-                ) : item.slug === "strategy" ? (
-                  <Routing2 weight="Bold" />
-                ) : null}
-              </span>
+              {item.slug === "readiness" ? (
+                <LinkRound weight="Bold" size={24} />
+              ) : item.slug === "research" ? (
+                <Library weight="Bold" size={24} />
+              ) : item.slug === "connect" ? (
+                <LinkSquare weight="Bold" size={24} />
+              ) : item.slug === "strategy" ? (
+                <Routing2 weight="Bold" size={24} />
+              ) : null}
               <h1 className="font-alternate font-medium text-lg">
                 {item.title}
               </h1>
@@ -90,7 +89,7 @@ export default function Home() {
       </section>
       <section className="flex w-full md:lg:xl:h-[90vh] overflow-hidden flex-col items-center justify-start py-20 px-10">
         <div className="flex flex-col items-center justify-center text-center gap-2">
-          <span className="text-xs text-foreground-500 font-alternate">
+          <span className="text-sm text-foreground-400 font-alternate">
             IMPACT
           </span>
           <h1 className="text-2xl md:lg:xl:text-5xl font-alternate font-medium">
@@ -123,8 +122,25 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="w-full h-[90vh] bg-background-50 text-background-950" />
-      <footer className="w-full h-[90vh] relative flex flex-col items-center justify-center">
+      <section className="w-full h-[50vh] p-20 flex gap-2 flex-col items-center justify-center bg-background-50 text-background-950">
+        <h1 className="font-bold text-accent-500 text-3xl text-center font-title">
+          "Axis Market Entry Advisory's insights were invaluable. They connected
+          us with the right investors and facilitated a seamless entry into the
+          Canadian market. Truly exceptional!"
+        </h1>
+        <span className="text-sm font-alternate text-center font-medium text-foreground-400">
+          {" "}
+          Dr. Anya Sharma, Global Tech Solutions
+        </span>
+        <Link
+          href="https://calendly.com/partners-axis-markets/30min"
+          target="_blank"
+          className="bg-background-950 text-foreground-50 my-5 px-6 text-sm py-3 active:scale-[0.97] rounded-full font-medium"
+        >
+          Book an Appointment
+        </Link>
+      </section>
+      <footer className="w-full h-[70vh] relative flex flex-col items-center justify-center">
         <div className="w-full h-full flex items-center justify-between">
           <div className="flex flex-col h-full w-3/6 text-sm md:lg:xl:text-base items-start p-10 text-foreground-500 justify-start gap-1">
             <span className="text-sm font-medium">Office Hours</span>

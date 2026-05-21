@@ -4,6 +4,7 @@ import { useScrollBlur } from "@/lib/hooks";
 import { HamburgerMenu } from "@solar-icons/react/ssr";
 import Link from "next/link";
 import { DropdownMenu } from "radix-ui";
+import ContactForm from "./contact-form";
 
 export default function Header() {
   const isScrolled = useScrollBlur();
@@ -38,9 +39,11 @@ export default function Header() {
         </DropdownMenu.Root>
       </nav>
       <nav className="hidden md:lg:xl:flex items-center justify-end gap-3">
-        <button className="bg-background-50 text-foreground-950 px-4 text-sm py-1 rounded-full font-medium">
-          Contact Us
-        </button>
+        <ContactForm>
+          <button className="bg-background-50 text-foreground-950 px-4 text-sm py-1 rounded-full font-medium">
+            Contact Us
+          </button>
+        </ContactForm>
       </nav>
     </div>
   );

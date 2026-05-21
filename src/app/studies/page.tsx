@@ -1,3 +1,4 @@
+import { ContactForm } from "@/components";
 import { CloseCircle } from "@solar-icons/react/ssr";
 import { Dialog } from "radix-ui";
 
@@ -46,31 +47,43 @@ export default function Page() {
           </span>
         </div>
       </div>
-      <Dialog.Root>
-        <Dialog.Trigger asChild>
-          <button className="bg-white px-4 py-1 rounded-full text-center text-xs text-foreground-950">
-            Send Feedback
-          </button>
-        </Dialog.Trigger>
-        <Dialog.Portal>
-          <Dialog.Overlay className="fixed inset-0 bg-black/20 data-[state=open]:animate-overlayShow" />
-          <Dialog.Content className="fixed left-1/2 bg-background-950 border border-solid border-background-900/20 rounded-sm top-1/2 max-h-[85vh] w-[90vw] max-w-125 -translate-x-1/2 -translate-y-1/2 shadow-(--shadow-6) focus:outline-none data-[state=open]:animate-contentShow">
-            <div className="w-full h-full p-3 flex relative flex-col items-start justify-start gap-2">
-              <Dialog.Close className="absolute top-3 right-3 text-red-500">
-                <CloseCircle size={16} weight="Bold" />
-              </Dialog.Close>
-              <div className="flex flex-col items-start justify-start">
-                <Dialog.Title className="text-foreground-100 font-medium -gap-1 text-md">
-                  Feedback
-                </Dialog.Title>
-                <span className="text-sm text-foreground-500">
-                  give us feedback, we're always try to build better
-                </span>
+      <div className="flex items-center justify-center gap-2">
+        <Dialog.Root>
+          <Dialog.Trigger asChild>
+            <button className="bg-white px-4 py-1 rounded-full text-center text-xs text-foreground-950">
+              Send Feedback
+            </button>
+          </Dialog.Trigger>
+          <Dialog.Portal>
+            <Dialog.Overlay className="fixed inset-0 bg-black/20 data-[state=open]:animate-overlayShow" />
+            <Dialog.Content className="fixed left-1/2 bg-background-950 border border-solid border-background-900/50 rounded-sm top-1/2 max-h-[85vh] w-[90vw] max-w-125 -translate-x-1/2 -translate-y-1/2 shadow-(--shadow-6) focus:outline-none data-[state=open]:animate-contentShow">
+              <div className="w-full h-full p-3 flex relative flex-col items-start justify-start gap-2">
+                <Dialog.Close className="absolute top-3 right-3 text-red-500">
+                  <CloseCircle size={16} weight="Bold" />
+                </Dialog.Close>
+                <div className="flex flex-col items-start justify-start">
+                  <Dialog.Title className="text-foreground-100 font-medium -gap-1 text-md">
+                    Feedback
+                  </Dialog.Title>
+                  <span className="text-sm text-foreground-500">
+                    give us feedback, we're always try to build better
+                  </span>
+                </div>
+                <input placeholder="Title" />
+                <textarea placeholder="Suggestion/Feedback" />
+                <button className="flex items-center justify-center gap-2 text-sm p-2 w-full bg-background-50 text-foreground-950 rounded-sm">
+                  <span>Send</span>
+                </button>
               </div>
-            </div>
-          </Dialog.Content>
-        </Dialog.Portal>
-      </Dialog.Root>
+            </Dialog.Content>
+          </Dialog.Portal>
+        </Dialog.Root>
+        <ContactForm>
+          <button className="bg-accent-300 px-4 py-1 rounded-full text-center text-xs text-accent-950">
+            Get In Touch
+          </button>
+        </ContactForm>
+      </div>
     </div>
   );
 }

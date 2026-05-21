@@ -20,15 +20,10 @@
   --font-title: "Gambarino", "serif";
   --font-display: "Switzer", "sans-serif";
   --font-alternate: "Chillax", "sans-serif";
-
-  --animate-slide-down-and-fade: slideDownAndFade 400ms
-    cubic-bezier(0.16, 1, 0.3, 1);
-  --animate-slide-left-and-fade: slideLeftAndFade 400ms
-    cubic-bezier(0.16, 1, 0.3, 1);
-  --animate-slide-up-and-fade: slideUpAndFade 400ms
-    cubic-bezier(0.16, 1, 0.3, 1);
-  --animate-slide-right-and-fade: slideRightAndFade 400ms
-    cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* overlay animations */
+  --animate-overlayShow: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-contentShow: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Colors: background */
   --color-background-50: #f6f6f6;
@@ -69,47 +64,24 @@
   --color-accent-900: #1c3028;
   --color-accent-950: #0b1f17;
 
-  @keyframes slideDownAndFade {
-    from {
+  /* animation keyframes */
+  @keyframes overlayShow {
+    0% {
       opacity: 0;
-      transform: translateY(-2px);
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+    100% {
+      opacity: 1,;
     }
   }
 
-  @keyframes slideLeftAndFade {
-    from {
+  @keyframes contentShow {
+    0% {
       opacity: 0;
-      transform: translateX(2px);
+      transform: "translate(-50%,-48%) scale(0.96)";
     }
-    to {
+    100% {
       opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes slideUpAndFade {
-    from {
-      opacity: 0;
-      transform: translateY(2px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes slideRightAndFade {
-    from {
-      opacity: 0;
-      transform: translateX(-2px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
+      transform: "translate(-50%,-50%) scale(1)";
     }
   }
 }
@@ -148,4 +120,12 @@ button {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+}
+
+input{
+  @apply bg-background-900/20 rounded-sm border border-solid text-foreground-100 border-background-800/20 w-full text-sm placeholder:text-sm p-2 outline-none;
+}
+
+textarea{
+  @apply bg-background-900/20 rounded-sm border border-solid text-foreground-100 max-h-72 border-background-800/20 w-full text-sm placeholder:text-sm p-2 outline-none;
 }
