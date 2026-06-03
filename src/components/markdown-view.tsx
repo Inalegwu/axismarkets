@@ -1,4 +1,6 @@
 "use client";
+import { getEmailUsername, isMailtoLink } from "@/lib/utils";
+import Link from "next/link";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import HoverLink from "./hover-link";
@@ -91,6 +93,20 @@ export default function MarkdownView({ content }: { content: string }) {
           return <div className="w-full my-5 h-px bg-background-900/30" />;
         },
         a({ children, href }) {
+          const link = href || "";
+          const isMailto = isMailtoLink(link);
+
+          if (isMailto) {
+            return (
+              <Link
+                href={link}
+                className="flex items-center justify-start gap-1 rounded-sm px-3 py-1 bg-accent-100 text-accent-500"
+              >
+                {getEmailUsername(link.split(":")[1])}
+              </Link>
+            );
+          }
+
           return (
             <HoverLink
               href={href || ""}

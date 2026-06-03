@@ -33,12 +33,10 @@ export function extractOGTag(html: CheerioAPI): Tag {
 }
 
 export const getBaseUrl = () => {
-  // 1) Client-side: use the actual URL in the browser
   if (typeof window !== "undefined") {
     return window.location.origin;
   }
 
-  // 2) Server-side on Vercel (production + preview)
   if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
     return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
   }
@@ -46,14 +44,25 @@ export const getBaseUrl = () => {
     return `https://${process.env.VERCEL_URL}`;
   }
 
-  // 3) Fallback for local development (or any other environment)
   return "http://localhost:3000";
 };
 
-export const makeUrl = (subPath: string) => {
-  // if (process.env.NODE_ENV === "development") {
-  //   return `http://localhost:3000/${subPath}`;
-  // }
+export const makeUrl = (subPath: string) => `${getBaseUrl()}/${subPath}`;
 
-  return `${getBaseUrl()}/${subPath}`;
+export const isMailtoLink = (url: string): boolean => {
+  try {
+    const parsed = new URL(url);
+    return parsed.protocol === "mailto:";
+  } catch {
+    return false;
+  }
+};
+
+export const getEmailUsername = (email: string): string | null => {
+  if (!email || typeof email !== "string") return null;
+
+  const atIndex = email.indexOf("@");
+  if (atIndex === -1) return null; // not a valid email
+
+  return email.substring(0, atIndex);
 };
