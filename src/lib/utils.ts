@@ -32,10 +32,28 @@ export function extractOGTag(html: CheerioAPI): Tag {
   } satisfies Tag;
 }
 
-export const makeUrl = (subPath: string) => {
-  if (process.env.NODE_ENV === "development") {
-    return `http://localhost:3000/${subPath}`;
+export const getBaseUrl = () => {
+  // 1) Client-side: use the actual URL in the browser
+  if (typeof window !== "undefined") {
+    return window.location.origin;
   }
 
-  return `${process.env.NEXT_PUBLIC_BASE_URL}/${subPath}`;
+  // 2) Server-side on Vercel (production + preview)
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  }
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+
+  // 3) Fallback for local development (or any other environment)
+  return "http://localhost:3000";
+};
+
+export const makeUrl = (subPath: string) => {
+  // if (process.env.NODE_ENV === "development") {
+  //   return `http://localhost:3000/${subPath}`;
+  // }
+
+  return `${getBaseUrl()}/${subPath}`;
 };

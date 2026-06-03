@@ -1,4 +1,4 @@
-import { BackButton } from "@/components";
+import { BackButton, ContactForm } from "@/components";
 import { allStudies } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 import type { Metadata } from "next";
@@ -21,8 +21,8 @@ export default function RootLayout({
   );
 
   return (
-    <main className="flex items-center w-full h-screen overflow-hidden">
-      <div className="w-[22%] h-full flex flex-col items-start justify-start">
+    <main className="flex flex-col md:lg:xl:flex-row items-center w-full h-screen overflow-hidden">
+      <div className="w-[22%] h-full hidden md:lg:xl:flex md:lg:xl:flex-col items-start justify-start">
         <nav className="flex items-center justify-between p-3">
           <BackButton />
           <span className="text-lg mx-2">Case Studies</span>
@@ -42,8 +42,15 @@ export default function RootLayout({
           ))}
         </div>
       </div>
-      <div className="w-[78%] h-full border-l border-l-solid border-l-background-900/35">
+      <div className="w-full md:lg:xl:w-[78%] h-full border-l border-l-solid border-l-background-900/35">
         {children}
+      </div>
+      <div className="flex md:lg:xl:hidden p-4 text-sm absolute bottom-0 left-0 w-full bg-background-900/40 backdrop-blur-2xl border-t border-t-solid border-t-background-900 items-center justify-end gap-3">
+        <ContactForm>
+          <button className="px-4 py-1 rounded-full bg-background-50 text-foreground-950">
+            Get In Touch
+          </button>
+        </ContactForm>
       </div>
     </main>
   );

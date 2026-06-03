@@ -20,7 +20,7 @@ export default function Header() {
         <Link href="/studies" className="navlink">
           Case Studies
         </Link>
-        <HoverCard.Root>
+        {/* <HoverCard.Root>
           <HoverCard.Trigger asChild>
             <span className="navlink cursor-pointer">Partners</span>
           </HoverCard.Trigger>
@@ -32,7 +32,7 @@ export default function Header() {
               content
             </HoverCard.Content>
           </HoverCard.Portal>
-        </HoverCard.Root>
+        </HoverCard.Root> */}
       </nav>
       <nav className="flex md:lg:xl:hidden items-center justify-end gap-3">
         <DropdownMenu.Root>
