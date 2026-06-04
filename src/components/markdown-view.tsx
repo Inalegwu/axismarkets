@@ -14,7 +14,10 @@ export default function MarkdownView({ content }: { content: string }) {
       components={{
         i({ children, ...props }) {
           return (
-            <i className="italic text-accent-550" {...props}>
+            <i
+              className="italic text-accent-950 dark:text-accent-550"
+              {...props}
+            >
               {children}
             </i>
           );
@@ -22,7 +25,7 @@ export default function MarkdownView({ content }: { content: string }) {
         em({ children, ...props }) {
           return (
             <i
-              className="italic text-accent-300 underline underline-offset-4"
+              className="italic text-accent-800 dark:text-accent-300 underline underline-offset-4"
               {...props}
             >
               {children}
@@ -36,7 +39,7 @@ export default function MarkdownView({ content }: { content: string }) {
           return (
             <h1
               {...props}
-              className="text-4xl my-3 text-foreground-200 font-bold font-title"
+              className="text-4xl my-3 text-foreground-900 dark:text-foreground-300 font-medium tracking-tight font-alternate"
             >
               {children}
             </h1>
@@ -46,7 +49,7 @@ export default function MarkdownView({ content }: { content: string }) {
           return (
             <h2
               {...props}
-              className="my-3 text-3xl text-foreground-200 font-bold font-title"
+              className="my-3 text-3xl text-foreground-900 dark:text-foreground-300 font-medium tracking-tight font-alternate"
             >
               {children}
             </h2>
@@ -56,7 +59,7 @@ export default function MarkdownView({ content }: { content: string }) {
           return (
             <h3
               {...props}
-              className="my-3 font-bold text-foreground-200 text-2xl font-title"
+              className="my-3 font-medium text-foreground-900 dark:text-foreground-300 text-2xl tracking-tight font-alternate"
             >
               {children}
             </h3>
@@ -66,7 +69,7 @@ export default function MarkdownView({ content }: { content: string }) {
           return (
             <h4
               {...props}
-              className="font-bold text-xl text-foreground-200 my-3 font-title"
+              className="font-medium text-xl text-foreground-900 dark:text-foreground-200 my-3 tracking-tight font-alternate"
             >
               {children}
             </h4>
@@ -75,7 +78,7 @@ export default function MarkdownView({ content }: { content: string }) {
         h5({ children, ...props }) {
           return (
             <h5
-              className="font-bold text-foreground-200 my-3 text-lg font-title"
+              className="font-medium text-foreground-900 dark:text-foreground-300 my-3 text-lg tracking-tight font-alternate"
               {...props}
             >
               {children}
@@ -84,13 +87,18 @@ export default function MarkdownView({ content }: { content: string }) {
         },
         p({ children, ...props }) {
           return (
-            <p className="text-foreground-300 my-4 text-base" {...props}>
+            <p
+              className="text-foreground-900 dark:text-foreground-300 my-4 text-base"
+              {...props}
+            >
               {children}
             </p>
           );
         },
         hr() {
-          return <div className="w-full my-5 h-px bg-background-900/30" />;
+          return (
+            <div className="w-full my-6 h-px bg-background-100 dark:bg-background-900/30" />
+          );
         },
         a({ children, href }) {
           const link = href || "";
@@ -100,7 +108,7 @@ export default function MarkdownView({ content }: { content: string }) {
             return (
               <Link
                 href={link}
-                className="flex items-center justify-start gap-1 rounded-sm px-3 py-1 bg-accent-100 text-accent-500"
+                className="flex items-center justify-start gap-1 rounded-sm px-3 py-1 dark:bg-accent-100 dark:text-accent-500"
               >
                 {getEmailUsername(link.split(":")[1])}
               </Link>
@@ -111,7 +119,7 @@ export default function MarkdownView({ content }: { content: string }) {
             <HoverLink
               href={href || ""}
               target="_blank"
-              className="text-accent-300 underline italic"
+              className="dark:text-accent-300 text-accent-800 underline italic"
             >
               {children}
             </HoverLink>

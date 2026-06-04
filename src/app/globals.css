@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @plugin "@toolwind/corner-shape";
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 @font-face {
   font-family: Gambarino;
   src: url("../assets/fonts/gambarino.ttf");
@@ -87,7 +89,7 @@
 }
 
 body {
-  @apply bg-background-950 text-foreground-50 font-display select-none outline-none;
+  @apply bg-background-50 text-foreground-950 dark:bg-background-950 dark:text-foreground-50 transition font-display select-none outline-none;
 }
 
 ::-webkit-scrollbar {
@@ -123,9 +125,9 @@ button {
 }
 
 input{
-  @apply bg-background-900/20 rounded-sm border border-solid text-foreground-100 border-background-800/20 w-full text-sm placeholder:text-sm p-2 outline-none;
+  @apply bg-background-100/10 dark:bg-background-900/20 rounded-sm border border-solid text-foreground-950 dark:text-foreground-100 border-background-100 dark:border-background-800/20 w-full text-sm placeholder:text-sm p-2 outline-none;
 }
 
 textarea{
-  @apply bg-background-900/20 rounded-sm border border-solid text-foreground-100 max-h-72 border-background-800/20 w-full text-sm placeholder:text-sm p-2 outline-none;
+  @apply bg-background-100/10 dark:bg-background-900/20 rounded-sm border border-solid text-foreground-950 dark:text-foreground-100 max-h-72 border-background-100 dark:border-background-800/20 w-full text-sm placeholder:text-sm p-2 outline-none;
 }

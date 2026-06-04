@@ -3,7 +3,7 @@
 import { useScrollBlur } from "@/lib/hooks";
 import { HamburgerMenu } from "@solar-icons/react/ssr";
 import Link from "next/link";
-import { DropdownMenu, HoverCard } from "radix-ui";
+import { DropdownMenu } from "radix-ui";
 import ContactForm from "./contact-form";
 
 export default function Header() {
@@ -11,13 +11,16 @@ export default function Header() {
 
   return (
     <div
-      className={`fixed z-30 w-full flex items-center bg-transparent justify-between py-5 px-10 transition ${isScrolled ? "backdrop-blur-md" : "backdrop-blur-none"}`}
+      className={`fixed z-30 w-full flex items-center bg-transparent justify-between py-5 px-10 transition ${isScrolled ? "backdrop-blur-md text-black" : "backdrop-blur-none text-white"}`}
     >
       <Link href="/" className="font-title text-3xl">
         Axis
       </Link>
       <nav className="hidden md:lg:xl:flex items-center justify-center gap-5">
-        <Link href="/studies" className="navlink">
+        <Link
+          href="/studies"
+          className={`navlink ${isScrolled ? "text-black" : "text-white"}`}
+        >
           Case Studies
         </Link>
         {/* <HoverCard.Root>

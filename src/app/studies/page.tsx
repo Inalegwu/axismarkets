@@ -1,5 +1,5 @@
 import { ContactForm } from "@/components";
-import { AltArrowRight, CloseCircle } from "@solar-icons/react/ssr";
+import { ArrowRight, CloseCircle } from "@solar-icons/react/ssr";
 import { allStudies } from "contentlayer/generated";
 import Link from "next/link";
 import { Dialog } from "radix-ui";
@@ -9,7 +9,7 @@ export default function Page() {
     <div className="flex flex-col items-center gap-2 overflow-hidden justify-center w-full h-full">
       {/* large screen view */}
       <div className="hidden md:lg:xl:flex md:lg:xl:flex-col md:lg:xl:items-center">
-        <h1 className="text-foreground-100 text-3xl md:lg:xl:text-5xl font-alternate font-medium">
+        <h1 className="text-foreground-950 dark:text-foreground-100 text-3xl md:lg:xl:text-5xl font-alternate font-medium">
           Axis Studiis{" "}
           <span className="text-xs italic text-foreground-600">
             (Axis Studies)
@@ -17,7 +17,7 @@ export default function Page() {
         </h1>
         <span className="text-center w-3/6 py-3 md:lg:xl:py-0 text-xs md:lg:xl:text-sm text-foreground-500">
           At{" "}
-          <span className="text-transparent bg-clip-text bg-linear-to-r from-accent-600 to-white">
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-accent-600 to-accent-500 dark:to-white">
             Axis
           </span>
           , we are committed to providing data-backed insights into the global
@@ -60,7 +60,7 @@ export default function Page() {
             </Dialog.Trigger>
             <Dialog.Portal>
               <Dialog.Overlay className="fixed inset-0 bg-black/20 data-[state=open]:animate-overlayShow" />
-              <Dialog.Content className="fixed left-1/2 bg-background-950 border border-solid border-background-900/50 rounded-sm top-1/2 max-h-[85vh] w-[90vw] max-w-125 -translate-x-1/2 -translate-y-1/2 shadow-(--shadow-6) focus:outline-none data-[state=open]:animate-contentShow">
+              <Dialog.Content className="fixed left-1/2 top-1/2 max-h-[85vh] w-[90vw] max-w-125 -translate-x-1/2 -translate-y-1/2 rounded-sm bg-white dark:bg-background-950 border border-solid border-background-200 dark:border-background-900 text-foreground-950 dark:text-foreground-50 shadow-(--shadow-6) focus:outline-none data-[state=open]:animate-contentShow">
                 <div className="w-full h-full p-3 flex relative flex-col items-start justify-start gap-2">
                   <Dialog.Close className="absolute top-3 right-3 text-red-500">
                     <CloseCircle size={16} weight="Bold" />
@@ -75,7 +75,7 @@ export default function Page() {
                   </div>
                   <input placeholder="Title" />
                   <textarea placeholder="Suggestion/Feedback" />
-                  <button className="flex items-center justify-center gap-2 text-sm p-2 w-full bg-background-50 text-foreground-950 rounded-sm">
+                  <button className="flex items-center justify-center gap-2 text-sm p-2 w-full bg-background-950 text-foreground-100 dark:bg-background-50 dark:text-foreground-950 rounded-sm">
                     <span>Send</span>
                   </button>
                 </div>
@@ -83,7 +83,7 @@ export default function Page() {
             </Dialog.Portal>
           </Dialog.Root>
           <ContactForm>
-            <button className="bg-accent-300 px-4 py-1 rounded-full text-center text-xs text-accent-950">
+            <button className="bg-accent-100 text-accent-600 dark:bg-accent-300 px-4 py-1 rounded-full text-center text-xs dark:text-accent-950">
               Get In Touch
             </button>
           </ContactForm>
@@ -92,8 +92,8 @@ export default function Page() {
       {/* small screen view */}
       <div className="flex w-full h-full flex-col md:lg:xl:hidden p-5 items-start justify-center">
         <div className="flex flex-col items-start gap-2 py-4">
-          <h1>Axis Studies</h1>
-          <span className="text-start text-xs md:lg:xl:text-sm text-foreground-500">
+          <h1 className="text-3xl font-bold font-title">Axis Studies</h1>
+          <span className="text-start text-sm text-foreground-500">
             At{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-accent-600 to-white">
               Axis
@@ -107,7 +107,7 @@ export default function Page() {
         <div className="flex flex-col overflow-y-scroll w-full h-full items-start">
           {allStudies.map((study) => (
             <Link
-              className="flex items-center justify-between w-full py-3 border-b gap-1 border-b-solid border-b-background-900"
+              className="flex items-center justify-between w-full py-3 border-b gap-1 border-b-solid border-b-background-200 dark:border-b-background-900"
               href={study.url}
               key={study._id}
             >
@@ -117,10 +117,10 @@ export default function Page() {
                   {study.subtitle}
                 </span>
               </div>
-              <AltArrowRight
+              <ArrowRight
                 className="text-accent-800"
                 size={16}
-                weight="Outline"
+                weight="Linear"
               />
             </Link>
           ))}

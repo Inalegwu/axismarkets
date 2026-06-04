@@ -8,10 +8,10 @@ export default function BackButton() {
 
   return (
     <button
-      className="text-foreground-500 p-1 flex items-center justify-center bg-background-900 rounded-sm"
+      className="text-foreground-950 dark:text-foreground-500 p-1 flex items-center justify-center bg-background-200 dark:bg-background-900 rounded-sm"
       onClick={() => router.back()}
     >
-      <ArrowLeft weight="Linear" size={12} />
+      <ArrowLeft weight="Linear" size={14} />
     </button>
   );
 }

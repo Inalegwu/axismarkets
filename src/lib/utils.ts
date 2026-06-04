@@ -66,3 +66,10 @@ export const getEmailUsername = (email: string): string | null => {
 
   return email.substring(0, atIndex);
 };
+
+export const getInitials = (name: string) =>
+  name
+    .trim()
+    .split(/\s+/)
+    .map((word) => word[0].toUpperCase())
+    .join("");

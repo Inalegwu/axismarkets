@@ -1,7 +1,6 @@
 "use client";
 
-import { extractOGTag } from "@/lib/utils";
-import { load } from "cheerio";
+import { getInitials } from "@/lib/utils";
 import Link from "next/link";
 import { Avatar, HoverCard } from "radix-ui";
 import type React from "react";
@@ -16,12 +15,9 @@ export default function HoverLink({ children, side, ...rest }: Props) {
 
   useEffect(() => {
     (async () => {
-      const page = await fetch(rest.href.toString())
-        .then((res) => res.text())
-        .catch((err) => console.log(err))
-        .then((txt) => load(txt ? txt : ""));
-
-      const tags = extractOGTag(page);
+      const tags = await fetch(`/api/tagger?url=${rest.href.toString()}`).then(
+        (res) => res.json() as Tag,
+      );
 
       setTags(tags);
     })();
@@ -34,28 +30,31 @@ export default function HoverLink({ children, side, ...rest }: Props) {
   return (
     <HoverCard.Root>
       <HoverCard.Trigger asChild>
-        <Link {...rest} className="underline text-teal-500 underline-offset-1">
+        <Link
+          {...rest}
+          className="underline text-accent-500 underline-offset-1"
+        >
           {children}
         </Link>
       </HoverCard.Trigger>
       <HoverCard.Portal>
         <HoverCard.Content
-          className="w-75 gap-3 mt-2 flex rounded-md border border-solid border-accent-900 bg-accent-950 text-accent-100 p-5 shadow-[hsl(206_22%_7%/35%)_0px_10px_38px_-10px,hsl(206_22%_7%/20%)_0px_10px_20px_-15px] data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade data-[side=right]:animate-slideLeftAndFade data-[side=top]:animate-slideDownAndFade data-[state=open]:transition-all"
+          className="w-75 gap-3 mt-2 flex rounded-md border border-solid border-background-300/30 dark:border-background-900/20 bg-background-200/20  dark:bg-background-900/20 backdrop-blur-lg text-foreground-950 dark:text-accent-100 p-5 shadow-[hsl(206_22%_7%/35%)_0px_10px_38px_-10px,hsl(206_22%_7%/20%)_0px_10px_20px_-15px] data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade data-[side=right]:animate-slideLeftAndFade data-[side=top]:animate-slideDownAndFade data-[state=open]:transition-all"
           side={side}
           sideOffset={5}
         >
           <div className="flex">
-            <Avatar.Root className="inline-flex size-11.25 select-none items-center justify-center overflow-hidden rounded-full bg-blackA1 align-middle">
+            <Avatar.Root className="inline-flex size-12 select-none items-center justify-center overflow-hidden rounded-full bg-blackA1 align-middle">
               <Avatar.Image
                 className="size-full rounded-[inherit] object-cover"
                 src={tags.image}
                 alt={tags.title}
               />
               <Avatar.Fallback
-                className="leading-1 flex size-full items-center justify-center bg-white text-[15px] font-medium text-violet11"
+                className="leading-1 flex size-full items-center justify-center bg-white dark:bg-background-900/20 dark:backdrop-blur-lg text-[15px] font-medium"
                 delayMs={600}
               >
-                WI
+                {getInitials(tags.title || "")}
               </Avatar.Fallback>
             </Avatar.Root>
           </div>
