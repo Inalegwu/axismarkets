@@ -13,7 +13,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="w-full relative">
+    <div className="w-full relative bg-background-950 text-foreground-50">
       <Header />
       <section className="w-full h-screen relative">
         <Image
