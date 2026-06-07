@@ -15,7 +15,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>("system");
   const [mounted, setMounted] = useState(false);
 
-  // After mount, read saved theme from localStorage
   useEffect(() => {
     const saved = localStorage.getItem("theme") as Theme | null;
     if (saved && ["light", "dark", "system"].includes(saved)) {
@@ -24,7 +23,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setMounted(true);
   }, []);
 
-  // Apply theme to <html> element
   useEffect(() => {
     if (!mounted) return;
 
@@ -48,7 +46,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem("theme", theme);
   }, [theme, mounted]);
 
-  // Listen to system preference changes when in 'system' mode
   useEffect(() => {
     if (!mounted || theme !== "system") return;
 
